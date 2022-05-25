@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MOICT</title>
+  <link rel="stylesheet" href="{% static 'home.css'%}">
+  <style>
+    body {
+      padding: 90px;
+      background-image: url('https://thumbs.dreamstime.com/z/nairobi-kenya-march-teleposta-towers-nairobi-city-kenya-teleposta-towers-nairobi-city-kenya-134435131.jpg');
+      background-size: cover;
+      backface-visibility: hidden;
+    }
+
+    header {
+      top: 0;
+      background-color: white;
+      right: 0;
+      left: 0;
+      height: 80px;
+      position: fixed;
+      bottom: 2%;
+    }
+
+    ul a {
+      list-style-type: none;
+      text-decoration: none;
+      margin: 0;
+      height: 0;
+      padding: 2px;
+      border-radius: 1px;
+      border: 1px solid grey;
+      background-color: gray;
+      color: black;
+    }
+
+    a:hover {
+      color: brown;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 2px;
+    }
+  </style>
+</head>
+
+
+<body>
+  <header>
+    <nav>
+      <ul class="nav-bar">
+        <li><a href="{% url 'home' %}"><b>HOME</b></a></li>
+        <li><a href="{% url 'query' %}"><b>ADMIN PANEL</b></a></li>
+        <li><a href="{% url 'form' %}"><b>ATTACHMENT REGISTRATION FORM</b></a></li>
+      </ul>
+    </nav>
+  </header>
+</body>
+
+</html>

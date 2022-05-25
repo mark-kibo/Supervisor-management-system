@@ -1,0 +1,183 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title Page-->
+    <title>MOICT ATTACHMENT Register Form</title>
+
+    <!-- Icons font CSS-->
+    <link href="{% static 'vendor/mdi-font/css/material-design-iconic-font.min.css'%}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/font-awesome-4.7/css/font-awesome.min.css'%}" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link
+        href="{% static 'https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i'%}"
+        rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="{% static 'vendor/select2/select2.min.css'%}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/datepicker/daterangepicker.css'%}" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="{% static 'main.css'%}" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="{% static 'home.css'%}">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="nav-bar">
+                <li><a href="{% url 'home' %}"><b>HOME</b></a></li>
+                <li><a href="{% url 'query' %}"><b>ADMIN PANEL</b></a></li>
+                <li><a href="{% url 'form' %}"><b>ATTACHMENT REGISTRATION FORM</b></a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+        <div class="wrapper wrapper--w790">
+            <div class="card card-5">
+                <div class="card-heading">
+                    <img src="https://ict.go.ke/wp-content/uploads/2020/01/banner201.png" class="title">
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="form-row m-b-55">
+
+                            <div class="name">Name</div>
+                            <div class="value">
+                                <div class="row row-space">
+                                    <div class="col-2">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" name="first_name" required>
+                                            <label class="label--desc">first name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" name="second_name" required>
+                                            <label class="label--desc">second name</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="name">Email</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="email" name="mail" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">University</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" name="Auniversity" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row m-b-55">
+                            <div class="name">Phone</div>
+                            <div class="value">
+                                <div class="row row-refine">
+                                    <div class="col-9">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="tel" name="phone" required>
+                                            <label class="label--desc">Phone Number</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row m-b-55">
+                            <div class="name">Start date</div>
+                            <div class="value">
+                                <div class="row row-space">
+                                    <div class="col-2">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="date" name="Astart_date" required>
+                                            <label class="label--desc">Start date</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row m-b-55">
+                            <div class="name">End date</div>
+                            <div class="value">
+                                <div class="row row-space">
+                                    <div class="col-2">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="date" name="Aend_date" required>
+                                            <label class="label--desc">End date</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row m-b-55">
+                            <div class="name">Supervisor name</div>
+                            <div class="value">
+                                <div class="row row-space">
+                                    <div class="col-2">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" name="Asupervisor_name" required>
+                                            <label class="label--desc">Supervisor name</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="name">Department name</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select name="Adepartment_name" required>
+                                            <option disabled="disabled" selected="selected">Choose option</option>
+                                            <option value="Broadcasting and Telecommunication">Broadcasting and
+                                                Telecommunication</option>
+                                            <option value="Innovation and Youth Affairs">Innovation and Youth Affairs
+                                            </option>
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn btn--radius-2 btn--red" type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Jquery JS-->
+    <script src="{% static 'vendor/jquery/jquery.min.js'%}"></script>
+    <!-- Vendor JS-->
+    <script src="{% static 'vendor/select2/select2.min.js'%}"></script>
+    <script src="{% static 'vendor/datepicker/moment.min.js'%}"></script>
+    <script src="{% static 'vendor/datepicker/daterangepicker.js'%}"></script>
+
+    <!-- Main JS-->
+    <script src="{% static 'js/global.js'%}"></script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
+<!-- end document-->
