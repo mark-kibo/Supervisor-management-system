@@ -6,60 +6,59 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MOICT</title>
-  <link rel="stylesheet" href="{% static 'home.css'%}">
-  <style>
-    body {
-      padding: 90px;
-      background-image: url('https://thumbs.dreamstime.com/z/nairobi-kenya-march-teleposta-towers-nairobi-city-kenya-teleposta-towers-nairobi-city-kenya-134435131.jpg');
-      background-size: cover;
-      backface-visibility: hidden;
-    }
-
-    header {
-      top: 0;
-      background-color: white;
-      right: 0;
-      left: 0;
-      height: 80px;
-      position: fixed;
-      bottom: 2%;
-    }
-
-    ul a {
-      list-style-type: none;
-      text-decoration: none;
-      margin: 0;
-      height: 0;
-      padding: 2px;
-      border-radius: 1px;
-      border: 1px solid grey;
-      background-color: gray;
-      color: black;
-    }
-
-    a:hover {
-      color: brown;
-    }
-
-    ul {
-      list-style-type: none;
-      padding: 2px;
-    }
-  </style>
+  <title>HOME</title>
+  <link rel="stylesheet" href="{% static 'style_home.css'%}">
+  <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </head>
-
-
 <body>
   <header>
-    <nav>
-      <ul class="nav-bar">
-        <li><a href="{% url 'home' %}"><b>HOME</b></a></li>
-        <li><a href="{% url 'query' %}"><b>ADMIN PANEL</b></a></li>
-        <li><a href="{% url 'form' %}"><b>ATTACHMENT REGISTRATION FORM</b></a></li>
-      </ul>
+    <nav class="navbar navbar-expand-lg " style="background-color: darkred;">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'home'%}" style="color: #fff;"><b>Home</b></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'form'%}" style="color: #fff;"><b>Attachee form</b></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'admin'%}" style="color: #fff;"><b>Admin panel</b></a>
+            </li>
+
+
+          </ul>
+        </div>
+      </div>
     </nav>
   </header>
+  <section class="row" id="card">
+    <div class="col">
+      <div class="card" style="width: 18rem; background-color: darkorange;">
+        <img src="{% static 'admin.svg'%}" class="card-img-top" alt="..." width="200" height="200">
+        <div class="card-body">
+          <p>Are you an admin? login to generate csv file</p>
+          <a href="{% url 'admin'%}" class="btn btn-primary">Admin panel</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 18rem; background-color: red;">
+        <img src="{% static 'form.svg'%}" class="card-img-top" alt="..." width="200" height="200">
+        <div class="card-body">
+          <p>Are you an attachee? Register your details and department</p>
+          <a href="{% url 'form'%}" class="btn btn-primary">Attachee form</a>
+        </div>
+      </div>
+    </div>
+
+
+  </section>
 </body>
 
 </html>

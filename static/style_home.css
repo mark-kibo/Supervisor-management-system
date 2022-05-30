@@ -1,0 +1,28 @@
+body{
+    background-image: url('https://www.buc.ac.ke/media/widgetkit/icta1-12349ec8e509d196c38495858003293c.png');
+
+    background-size:cover ;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-position: inherit;
+  
+}
+li a:hover{
+    background-color: rgb(6, 95, 10);
+    transition: 1s;
+}
+#card{
+    margin: 15%;
+
+}
+.card a{
+    margin: 5px;
+}
+
+header{
+    position:relative;
+}
+.card a:hover{
+    background-color: rgb(6, 95, 10);
+}
