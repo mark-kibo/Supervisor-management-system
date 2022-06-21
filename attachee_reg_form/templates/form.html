@@ -3,110 +3,110 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FORM</title>
-    <link rel="stylesheet" href="{% static 'style_form.css'%}">
-    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-    <style>
-        li :hover {
-    background-color: rgb(6, 95, 10);
-    transition: 1s;
-}
-    </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FORM</title>
+  <link rel="stylesheet" href="{% static 'styling_attachee.css'%}">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+  <style>
+    li :hover {
+      background-color: rgb(6, 95, 10);
+      transition: 1s;
+    }
+  </style>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg " style="background-color: darkred;">
-          <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-              aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="{% url 'home'%}" style="color: #fff;"><b>Home</b></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'form'%}" style="color: #fff;"><b>Attachee form</b></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'admin'%}" style="color: #fff;"><b>Admin panel</b></a>
-                </li>
-    
-    
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </header>
-      {% if messages %}
-      {% for message in messages %}
-      <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        {{message}}
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-      {% endfor %}
-      {% endif %}
-<form method="post">
-    {% csrf_token %}
-   <div class="registerbox">
-       <img src="https://ict.go.ke/wp-content/uploads/2020/01/banner201.png" class="title">
-       <div class="row">
-           <div class="col">
-            <p>First name</p>
-            <input type="text" name="first_name" required>
-        </div>
-        <div class="col">
-            <p>Second name</p>
-            <input class="input--style-5" type="text" name="second_name" required>
-        </div>
-        <div>
-            <p>Email</p>
-            <input type="email" name="mail" id="">
-        </div>
-        <div>
-            <p>Contact</p>
-            <input type="tel" name="phone" id="" required>
-        </div>
-        <div>
-            <p>University</p>
-            <input type="text" name="Auniversity" id="" required>
-        </div>
-        <div class="col">
-            <p>start date</p>
-            <input type="date" name="Astart_date" id="" required>
-        </div>
-        <div class="col">
-            <p>end date</p>
-            <input type="date" name="Aend_date" id="" required>
-        </div>
-        <div>
-            <p>Supervisor</p>
-            <input type="text" name="Asupervisor_name" id="" required>
-        </div>
-        <div>
-           <select name="Adepartment_name" id="" required>
-               <option value="department" selected>department</option>
-               <option value="Broadcasting and Telecommunication">Broadcasting and Telecommunication</option>
-               <option value="Innovation and youth affairs">Innovation and youth affairs</option>
-           </select>
-        </div>
-        </div>
-
-        <div>
-            <button type="submit">submit</button>
-        </div>
-    </div>
+  <header>
+    <nav class="navbar navbar-expand-lg " style="background-color: darkred;">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'home'%}" style="color: #fff;"><b>Home</b></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'form'%}" style="color: #fff;"><b>Attachee form</b></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'admin'%}" style="color: #fff;"><b>Admin panel</b></a>
+            </li>
 
 
-   </div>
-</form>
-
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  {% if messages %}
+  {% for message in messages %}
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {{message}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor %}
+  {% endif %}
 </body>
+<section class="get-in-touch">
+  <h1 class="title">Fill in your details</h1>
+  <form class="contact-form row">
+    {% csrf_token %}
+    <div class="form-field col-lg-6">
+      <input id="name" class="input-text js-input" type="text" name="first_name" required>
+      <label class="label" for="name">First Name</label>
+    </div>
+    <div class="form-field col-lg-6">
+      <input id="name" class="input-text js-input" type="text" name="second_name" required>
+      <label class="label" for="name">Second Name</label>
+    </div>
+    <div class="form-field col-lg-6 ">
+      <input id="email" class="input-text js-input" type="email" name="mail" required>
+      <label class="label" for="email">E-mail</label>
+    </div>
+    <div class="form-field col-lg-6 ">
+      <input id="company" class="input-text js-input" type="tel" name="phone" required>
+      <label class="label" for="company">Your contact</label>
+    </div>
+    <div class="form-field col-lg-6 ">
+      <input id="phone" class="input-text js-input" type="text" name="Auniversity" required>
+      <label class="label" for="phone">University/college</label>
+    </div>
+    <div class="form-field col-lg-6 ">
+      <input id="phone" class="input-text js-input" type="date" name="Astart_date" required>
+      <label class="label" for="phone">Start date</label>
+    </div>
+    <div class="form-field col-lg-6 ">
+      <input id="phone" class="input-text js-input" type="date" name="Aend_date" required>
+      <label class="label" for="phone">End date</label>
+    </div>
+    <div class="form-field col-lg-6 ">
+      <input id="phone" class="input-text js-input" type="text" name="Asupervisor_name" required>
+      <label class="label" for="phone">Supervisor name</label>
+    </div>
+    <div class="form-field col-lg-12">
+      <select name="Adepartment_name" id="" required>
+        <option value="department" selected>department</option>
+        <option value="Broadcasting and Telecommunication">Broadcasting and Telecommunication</option>
+        <option value="Innovation and youth affairs">Innovation and youth affairs</option>
+      </select>
+    </div>
+    <div class="form-field col-lg-12">
+      <input class="submit-btn" type="submit" value="Submit">
+    </div>
+  </form>
+</section>
 
 </html>
+
