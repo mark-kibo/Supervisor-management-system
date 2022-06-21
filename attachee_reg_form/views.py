@@ -59,7 +59,7 @@ def logging(request):
             messages.success(request, ("invalid loging details try again!"))
             return redirect('login')
     else:
-        return render(request, 'home.html')
+        return render(request, 'login.html')
 
 #logs out the admin if admin requests for logout
 
