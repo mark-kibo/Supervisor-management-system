@@ -5,9 +5,8 @@ from . import views
 
 
 urlpatterns = [
-    path('form/', views.aform, name='form'),
     path('admin_panel/', views.query, name='admin'),
-    path('', views.home, name="home"),
+    path('', views.aform, name="form"),
     path('csv', views.csvfile, name="csv"),
     path('login', views.logging , name="login"),
     path('register', views.register, name="register"),

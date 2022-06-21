@@ -11,7 +11,7 @@ from .models import Form
 from .filters import FormFilter
 # Create your views here.
 
-#gets form data and store in database
+#gets form data and store in database, also its the home
 def aform(request):
     if request.method == 'POST':
         first_name= request.POST['first_name']
@@ -42,7 +42,7 @@ def aform(request):
             messages.success(request,("Form submitted successfully"))
             return redirect('form')
     else:
-        return render(request, 'form.html')
+        return render(request, 'home.html')
 
 
 #gets admin logging details and authenticate admin 
@@ -59,7 +59,7 @@ def logging(request):
             messages.success(request, ("invalid loging details try again!"))
             return redirect('login')
     else:
-        return render(request, 'login.html')
+        return render(request, 'home.html')
 
 #logs out the admin if admin requests for logout
 
@@ -87,6 +87,7 @@ def register(request):
     else:
         return render(request, 'register.html')
 
+#filters table data 
 def query(request):
         f = FormFilter(request.POST, queryset=Form.objects.all())
         p =Paginator(f.qs, 2)
@@ -97,9 +98,6 @@ def query(request):
             new.append(data.id)
         return render(request, 'admin.html', {'filter' : form, 'form' : f, "my_list": new})
 
-#renders the home page
-def home(request):
-    return render(request, 'home.html')
 
 #creates a csv file of the data in the database 
 def csvfile(request):
