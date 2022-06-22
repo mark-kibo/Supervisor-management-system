@@ -53,10 +53,10 @@
   </div>
   {% endfor %}
   {% endif %}
-</body>
+
 <section class="get-in-touch">
   <h1 class="title">Fill in your details</h1>
-  <form class="contact-form row">
+  <form class="contact-form row" method="post">
     {% csrf_token %}
     <div class="form-field col-lg-6">
       <input id="name" class="input-text js-input" type="text" name="first_name" required>
@@ -102,6 +102,7 @@
     </div>
   </form>
 </section>
+
 
 </html>
 

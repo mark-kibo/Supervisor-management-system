@@ -7,7 +7,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from .forms import UpdateForm
 import csv
-from .models import Form
+from .models import Form, Issue
 from .filters import FormFilter
 # Create your views here.
 
@@ -141,11 +141,20 @@ def delete(request, pk):
     messages.success(request, ("the attachee" + ' ' + data.first_name + ' ' + "has been removed from the database!"))
     return redirect('admin')
 
-    
+def issues(request):
+    if request.method == 'POST':
+        date = request.POST['date']
+        floor = request.POST['floor']
+        issue = request.POST['issue']
+        resolved = request.POST['problems']
+        name = request.POST['name']
 
+        data = Issue(date=date, floor=floor, issue=issue, resolved=resolved, name=name)
+        data.save()
+        return redirect('issue')
+    else:
+        return render(request, 'issues.html')
 
+def index(request):
+    return render(request, 'index.html')
 
-
-
-    
-    return HttpResponse('done')

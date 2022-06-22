@@ -20,3 +20,12 @@ class Form(models.Model):
         return self.first_name
 
     
+class Issue(models.Model):
+    date =models.DateField(null=False, default='2022-06-22')
+    floor = models.CharField(max_length=255)
+    issue =models.CharField(max_length=2550)
+    Resolved = models.CharField(max_length=255)
+    name  =models.CharField(max_length=2550)
+
+    def __str__(self):
+        return self.issue
