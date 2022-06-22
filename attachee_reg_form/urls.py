@@ -14,5 +14,6 @@ urlpatterns = [
     path('logout', views.log_out, name="logout"),
     path('update/<str:pk>', views.updating, name="updating"),
     path('delete/<int:pk>', views.delete, name='delete-data'),
-    path('issue_page', views.issues, name="issue")
-    ]
+    path('issue_page', views.issues, name="issue"),
+    path('issue_table', views.issue_table, name='issue_table')
+]

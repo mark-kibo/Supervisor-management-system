@@ -149,12 +149,18 @@ def issues(request):
         resolved = request.POST['problems']
         name = request.POST['name']
 
-        data = Issue(date=date, floor=floor, issue=issue, resolved=resolved, name=name)
+        data = Issue(date=date, floor=floor, issue=issue, Resolved=resolved, name=name)
         data.save()
+        messages.success(request, 'task submitted')
         return redirect('issue')
     else:
         return render(request, 'issues.html')
 
 def index(request):
     return render(request, 'index.html')
+
+def issue_table(request):
+    my_data=Issue.objects.all()
+
+    return render( request, 'issue_table.html', {'data': my_data})
 
