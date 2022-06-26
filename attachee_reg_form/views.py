@@ -54,7 +54,7 @@ def logging(request):
         user =authenticate(request, username=username, password=password)
         if user is not None:
             login( request, user)
-            return redirect('admin')
+            return redirect('admin_page')
         else:
             messages.success(request, ("invalid loging details try again!"))
             return redirect('login')
@@ -86,6 +86,12 @@ def register(request):
             return redirect('register')
     else:
         return render(request, 'register.html')
+
+# admin home page
+def admin_page(request):
+    user_count = Form.objects.count()
+    issue_count =Issue.objects.count()
+    return render(request, 'admin_page.html', {'user_count': user_count, 'issue_count': issue_count})
 
 #filters table data 
 def query(request):
@@ -162,5 +168,5 @@ def index(request):
 def issue_table(request):
     my_data=Issue.objects.all()
 
-    return render( request, 'issue_table.html', {'data': my_data})
+    return render( request, 'issue2_table.html', {'data': my_data})
 

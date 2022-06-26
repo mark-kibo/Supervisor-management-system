@@ -21,8 +21,8 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'form' %}">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'admin' %}">Login as admin</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login as admin</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'issue' %}">Issue</a></li>
                     </ul>
                 </div>
@@ -62,14 +62,6 @@
                         <p>As an attachee you are required to fill in tasks that you do on a daily basis in respect to user support and maintenance</p>
                         <a class="text-decoration-none" href="{% url 'issue' %}">
                             Fill in tasks done
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i></div>
-                        <h2 class="h4 fw-bolder">View tasks done </h2>
-                        <a class="text-decoration-none" href="{% url 'issue_table' %}">
-                            view tasks
                             <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
