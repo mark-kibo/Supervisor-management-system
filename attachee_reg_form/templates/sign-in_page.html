@@ -6,8 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
-
+    <title>sign-in</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css"
         rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -28,7 +27,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-primary" style="color:#fff;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Admin login form</a>
+            <a class="navbar-brand" href="#">Admin registration form</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -40,7 +39,6 @@
             </div>
         </div>
     </nav>
-
     <div class="registration-form">
         <form method="post">
             {% csrf_token %}
@@ -49,25 +47,25 @@
             </div>
             <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text" class="form-control item" id="username" placeholder="Username" name="name">
+                <input type="text" class="form-control item" id="username" placeholder="Username" name="username">
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" class="form-control item" id="password" placeholder="Password" name="password">
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-block create-account">Login</button>
+                <label for="password1">Confirm password</label>
+                <input type="password" class="form-control item" id="password1" placeholder="Password" name="password2">
             </div>
             <div class="form-group">
-                <a href="{% url 'admin_code' %}"><button type="button" class="btn btn-block create-account">Sign-up</button></a>
+                <button type="submit" class="btn btn-block create-account">Create Account</button>
             </div>
         </form>
-       
     </div>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
-    <script src="{% static 'home.js'%}"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>

@@ -3,106 +3,101 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FORM</title>
-  <link rel="stylesheet" href="{% static 'styling_attachee.css'%}">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-    crossorigin="anonymous"></script>
-  <style>
-    li :hover {
-      background-color: rgb(6, 95, 10);
-      transition: 1s;
-    }
-  </style>
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'style_home.css'%}">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+        crossorigin="anonymous"></script>
+    <title>Attachee Form</title>
 </head>
-
 <body>
-  <header>
-    <nav class="navbar navbar-expand-lg " style="background-color: darkred;">
-      <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'index'%}" style="color: #fff;"><b>Home</b></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'login'%}" style="color: #fff;"><b>Login as admin</b></a>
-            </li>
-          </ul>
+    <nav class="navbar navbar-expand-lg bg-primary" style="color:#fff;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Attachment registration form</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+                </div>
+            </div>
         </div>
-      </div>
     </nav>
-  </header>
-  {% if messages %}
-  {% for message in messages %}
-  <div class="alert alert-warning alert-dismissible fade show" role="alert">
-    {{message}}
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>
-  {% endfor %}
-  {% endif %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endfor %}
+    {% endif %}
 
-<section class="get-in-touch">
-  <h1 class="title">Fill in your details</h1>
-  <form class="contact-form row" method="post">
-    {% csrf_token %}
-    <div class="form-field col-lg-6">
-      <input id="name" class="input-text js-input" type="text" name="first_name" required>
-      <label class="label" for="name">First Name</label>
+    <div class="registration-form">
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-icon">
+                <span><i class="icon icon-user"></i></span>
+            </div>
+            <div class="form-group">
+                <label for="Firstname">Firstname</label>
+                <input type="text" class="form-control item" id="Firstname" placeholder="Firstname" name="first_name">
+            </div>
+            <div class="form-group">
+                <label for="Lastname">Secondname</label>
+                <input type="text" class="form-control item" id="Lastname" placeholder="Secondname" name="second_name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control item" id="email" placeholder="Email" name="mail">
+            </div>
+            <div class="form-group">
+                <label for="phone-number">Contact</label>
+                <input type="text" class="form-control item" id="phone-number" placeholder="Contact" name="phone">
+            </div>
+            <div class="form-group">
+                <label for="university">University</label>
+                <input type="text" class="form-control item" id="university" placeholder="University" name="Auniversity">
+            </div>
+            <div class="form-group">
+                <label for="start-date">Start date</label>
+                <input type="date" class="form-control item" id="start-date" placeholder="start date" name="Astart_date">
+            </div>
+            <div class="form-group">
+                <label for="end-date">End date</label>
+                <input type="date" class="form-control item" id="end-date" placeholder="end date" name="Aend_date">
+            </div>
+            <div class="form-group">
+                <label for="supervisor">supervisor</label>
+                <input type="text" class="form-control item" id="supervisor" placeholder="supervisor" name="Asupervisor_name">
+            </div>
+            <div class="form-group">
+                <label for="departments">departments</label>
+               <select id="departments" name="Adepartment_name" class="form-group">
+                <option value="Broadcasting and Telecommunication">Broadcasting and Telecommunication</option>
+                <option value="ICT">ICT</option>
+               </select>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-block create-account">Submit Details</button>
+            </div>
+        </form>
     </div>
-    <div class="form-field col-lg-6">
-      <input id="name" class="input-text js-input" type="text" name="second_name" required>
-      <label class="label" for="name">Second Name</label>
-    </div>
-    <div class="form-field col-lg-6 ">
-      <input id="email" class="input-text js-input" type="email" name="mail" required>
-      <label class="label" for="email">E-mail</label>
-    </div>
-    <div class="form-field col-lg-6 ">
-      <input id="company" class="input-text js-input" type="tel" name="phone" required>
-      <label class="label" for="company">Your contact</label>
-    </div>
-    <div class="form-field col-lg-6 ">
-      <input id="phone" class="input-text js-input" type="text" name="Auniversity" required>
-      <label class="label" for="phone">University/college</label>
-    </div>
-    <div class="form-field col-lg-6 ">
-      <input id="phone" class="input-text js-input" type="date" name="Astart_date" required>
-      <label class="label" for="phone">Start date</label>
-    </div>
-    <div class="form-field col-lg-6 ">
-      <input id="phone" class="input-text js-input" type="date" name="Aend_date" required>
-      <label class="label" for="phone">End date</label>
-    </div>
-    <div class="form-field col-lg-6 ">
-      <input id="phone" class="input-text js-input" type="text" name="Asupervisor_name" required>
-      <label class="label" for="phone">Supervisor name</label>
-    </div>
-    <div class="form-field col-lg-12">
-      <select name="Adepartment_name" id="" required>
-        <option value="department" selected>department</option>
-        <option value="Broadcasting and Telecommunication">Broadcasting and Telecommunication</option>
-        <option value="Innovation and youth affairs">Innovation and youth affairs</option>
-      </select>
-    </div>
-    <div class="form-field col-lg-12">
-      <input class="submit-btn" type="submit" value="Submit">
-    </div>
-  </form>
-</section>
-
-
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="{% static 'home.js'%}"></script>
+</body>
 </html>
-

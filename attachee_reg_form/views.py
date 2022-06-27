@@ -1,5 +1,5 @@
 from urllib import response
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.http import HttpResponse
 from django.contrib import messages
 from django.core.paginator import Paginator
@@ -7,7 +7,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from .forms import UpdateForm
 import csv
-from .models import Form, Issue
+from .models import Form, Issue, Code
 from .filters import FormFilter
 # Create your views here.
 
@@ -85,7 +85,7 @@ def register(request):
             messages.error(request,('password does not match.Try Again!!'))
             return redirect('register')
     else:
-        return render(request, 'register.html')
+        return render(request, 'sign-in_page.html')
 
 # admin home page
 def admin_page(request):
@@ -170,3 +170,16 @@ def issue_table(request):
 
     return render( request, 'issue2_table.html', {'data': my_data})
 
+def admin_code(request):
+    if request.method == "POST":
+        code = request.POST['code']
+        admin_code = Code.objects.all()
+        for data in admin_code:
+            if code == data.code:
+                return redirect('register')
+            else:
+                messages.error(request, 'code invalid')
+                return redirect('admin_code')
+
+    else:
+        return render(request, 'code_page.html')
