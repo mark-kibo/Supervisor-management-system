@@ -29,6 +29,17 @@ class Issue(models.Model):
 
     def __str__(self):
         return self.issue
+    
+    #JSON
+    def get_data(self):
+        return {
+            'date':self.date,
+            'floor': self.floor,
+            'issue':self.issue,
+            'resolved':self.Resolved,
+            'name':self.name,
+
+        }
 
 class Code(models.Model):
     code = models.CharField(max_length=10)
