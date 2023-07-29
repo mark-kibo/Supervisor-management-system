@@ -75,14 +75,18 @@ def register(request):
         password =request.POST['password']
         password1 =request.POST['password2']
         if password == password1:
-            new = User.objects.create_user(
-                username=username,
-                password=password
-            )
-            new.save()
-            return redirect('login')
+            if User.objects.filter(username=username).exists():
+                messages.error(request,'user exists!')
+                return redirect('register')
+            else:
+                new = User.objects.create_user(
+                    username=username,
+                    password=password
+                )
+                new.save()
+                return redirect('login')
         else:
-            messages.error(request,('password does not match.Try Again!!'))
+            messages.error(request,'password does not match.Try Again!!')
             return redirect('register')
     else:
         return render(request, 'sign-in_page.html')
